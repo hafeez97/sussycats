@@ -1,0 +1,19 @@
+.Faqs{
+    background-color: #543b63;
+    height: 500px;
+    font-family: VT323;
+    display: flex;
+    align-content: center;
+    text-align: left;
+}
+.box{
+    width: 60%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.faq-row-wrapper{
+    border: none;
+}
+.faq-row{
+    border-bottom: 2px solid #ccc;
+}

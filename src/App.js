@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react';
-
-import Sound from 'react-sound';
-import Valhalla from './assets/valhalla.mp3';
-import ValhallaMetal from './assets/valhalla_metal.mp3';
-import { ethers } from 'ethers';
 import './App.css';
 
 // Components
 import LoadingIndicator from './Components/LoadingIndicator';
+import Faqs from "./Components/faqs";
 
 
 const App = () => {
 
 // State
 const [currentAccount, setCurrentAccount] = useState(null);
-const [characterNFT, setCharacterNFT] = useState(null);
-const [metaMaskMsg, setMetaMaskMsg] = useState(false);
-const [isLoading, setIsLoading] = useState(false);
-const [isPlaying, setIsPlaying] = useState(true);
-const [isMetal, setIsMetal] = useState(true);
 const [connected, setConnected] = useState(false);
-const [phantom, setPhantom] = useState(null);
+  const [phantom, setPhantom] = useState(null);
+
+  useEffect(() => {
+    if ("solana" in window) {
+      setPhantom(window["solana"]);
+    }
+  }, []);
+
 
   // Actions
   const checkIfWalletIsConnected = async () => {
@@ -47,25 +45,54 @@ const [phantom, setPhantom] = useState(null);
 
   // Render Methods
   const renderContent = () => {
-    if (connected !== true) {
+    if (phantom) {
+      if(!connected){
+        return (
+          <div>
+            <a onClick={connectWalletAction} href="#" className="card">
+              <img src="https://thesussycats.netlify.app/assets/img/gif/01.gif" className="card__image" alt="" />
+              <div className="card__overlay">
+                <div className="card__header">
+                  <svg className="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+                  <img className="card__thumb" src="https://pbs.twimg.com/profile_images/1394116783792025603/jTMcoZRY_400x400.jpg" alt="" />
+                  <div className="card__header-text">
+
+                    <h3 className="card__title">CONNECT TO PLAY</h3>
+                  </div>
+                </div>
+                <p className="card__description">The connection will take you to sussy cat World <br/><br/><br/></p>
+              </div>
+            </a>
+          </div>
+        );
+      }
       return (
-        <div >
-          <button
-            onClick={connectWalletAction}
-          >
-            CONNECT WALLET TO PLAY
-          </button>
-        </div>
-      );
+        <button onClick={disconnectWalletAction}>disconnect</button>
+      )
+
+
     }
     else{
       return (
-        <div >
-          <button
-            onClick={disconnectWalletAction}
-          >
-            DISCONNECT
-          </button>
+        <div>
+          <a href="https://phantom.app/"
+             target="_blank" className="card">
+            <img src="https://thesussycats.netlify.app/assets/img/gif/01.gif" className="card__image" alt="" />
+            <div className="card__overlay">
+              <div className="card__header">
+                <svg className="card__arc" xmlns="http://www.w3.org/2000/svg">
+                  <path />
+                </svg>
+                <img className="card__thumb" src="https://pbs.twimg.com/profile_images/1394116783792025603/jTMcoZRY_400x400.jpg" alt="" />
+                <div className="card__header-text">
+
+                  <h3 className="card__title">GET PHANTOM</h3>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       )
     }
@@ -94,29 +121,30 @@ const [phantom, setPhantom] = useState(null);
   <div className="App">
 
     <div className="container">
-      {/*<div className="sound-box">*/}
-      {/*    <span className="sound-toggle"*/}
-      {/*          onClick={() => setIsPlaying(!isPlaying ? true : false)}>*/}
-      {/*        {isPlaying ? '🔊' : '🔇'}*/}
-      {/*    </span>*/}
-      {/*  <span className="sound-toggle-no-animation"*/}
-      {/*        onClick={() => setIsMetal(!isMetal ? true : false)}>*/}
-      {/*        {isMetal ? '🎸' : '🪕'}*/}
-      {/*    </span>*/}
-
-      {/*</div>*/}
+      <div className="sound-box">
+        <a href="https://discord.com/invite/54j5Dfn6zk" target="_blank">
+          <button className="btn"><i className="fab fa-discord"></i> Discord</button>
+        </a>
+        <a href="https://twitter.com/CatsSussy" target="_blank">
+          <button className="btn" style={{marginLeft:"5px"}}><i className="fab fa-twitter"></i> Twitter</button>
+        </a>
+      </div>
       <div className=" header home__title">Sussy Cats</div>
       <div>
         {renderContent()}
-
       </div>
+
+
     </div>
 
-    <div className="footer-container">
-      <div className="footer-text"/>
-      &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>
-    </div>
+
+    {/*<div className="footer-container">*/}
+    {/*  <div className="footer-text"/>*/}
+    {/*  &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>*/}
+    {/*</div>*/}
+    <Faqs/>
   </div>
+
 </>
 
   );
