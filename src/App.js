@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import logo from "./assets/logo.png"
 
 // Components
 import LoadingIndicator from './Components/LoadingIndicator';
@@ -122,13 +123,20 @@ const [connected, setConnected] = useState(false);
   <div className="App">
 
     <div className="container">
+
       <div className="sound-box">
-        <a href="https://discord.com/invite/54j5Dfn6zk" target="_blank">
-          <button className="btn"><i className="fab fa-discord"></i> Discord</button>
-        </a>
-        <a href="https://twitter.com/CatsSussy" target="_blank">
-          <button className="btn" style={{marginLeft:"5px"}}><i className="fab fa-twitter"></i> Twitter</button>
-        </a>
+        <div style={{marginLeft:"30px"}}>
+          <img src={logo} height="80px "width="80px"  alt=""/>
+        </div>
+        <div style={{textAlign:"right", marginTop:"15px"}}>
+          <a href="https://discord.com/invite/54j5Dfn6zk" target="_blank">
+            <button className="btn"><i className="fab fa-discord"></i> | Discord</button>
+          </a>
+          <a href="https://twitter.com/CatsSussy" target="_blank">
+            <button className="btn" style={{marginLeft:"5px"}}><i className="fab fa-twitter"></i> | Twitter</button>
+          </a>
+        </div>
+
       </div>
       <div className=" header home__title">Sussy Cats</div>
       <div>
