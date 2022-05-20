@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@font-face {
+  font-family: 'VT323', monospace;
+  src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
+}
+
 .App {
   height: 100%;
   background-color: #0d1116;
-  /*background-image: url("./assets/valhalla_bg_blur.jpeg");*/
+  background-image: url("./assets/MAINBG.gif");
   background-size: cover;
   background-position: center;
   overflow: scroll;
@@ -12,13 +18,14 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
+
 
 .header {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 2rem;
-  font-family: "comic_runesregular";
   letter-spacing: 36px;
   font-size: 6rem;
   font-weight: bold;
@@ -51,42 +58,29 @@
 
 .sub-text {
   letter-spacing: 22px;
-  font-family: "comic_runesregular";
+  font-family: "VT323";
   font-size: 1rem;
   color: white;
+}
+
+.home__title {
+  margin-top: 10%;
+  width: 100%;
+  font-family: "VT323";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #FFFFFF;
 }
 
 .content-container {
   background-color: #151515;
 }
 
-.cta-button {
-  height: 65px;
-  border: 0;
-  width: auto;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 2rem;
-  font-family: "comic_runesregular";
-  letter-spacing: 10px;
-  font-weight: bold;
-  color: white;
-}
 
-.connect-wallet-container {
-  display: flex;
-  max-width: 600px;
-  margin: auto;
-  margin-top: 2rem;
-  align-items: center;
-  animation: header 0.4s infinite alternate;
-}
-
-.connect-wallet-container img {
-  padding-bottom: 20px;
-}
 
 .connect-wallet-button {
   margin-top: 6rem;
@@ -136,13 +130,16 @@
 }
 
 /* Font */
-@font-face {
-  font-family: "comic_runesregular";
-  src: url("./assets/comicrunes-webfont.woff2") format("woff2"),
-    url("./assets/comicrunes-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: "comic_runesregular";*/
+/*  src: url("./assets/comicrunes-webfont.woff2") format("woff2"),*/
+/*    url("./assets/comicrunes-webfont.woff") format("woff");*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
+/*@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');*/
+
+
 
 .glow-text {
   position: relative;

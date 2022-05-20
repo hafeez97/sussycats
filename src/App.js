@@ -49,9 +49,8 @@ const [phantom, setPhantom] = useState(null);
   const renderContent = () => {
     if (connected !== true) {
       return (
-        <div className="connect-wallet-container">
+        <div >
           <button
-            className="cta-button connect-wallet-button"
             onClick={connectWalletAction}
           >
             CONNECT WALLET TO PLAY
@@ -61,9 +60,8 @@ const [phantom, setPhantom] = useState(null);
     }
     else{
       return (
-        <div className="connect-wallet-container">
+        <div >
           <button
-            className="cta-button connect-wallet-button"
             onClick={disconnectWalletAction}
           >
             DISCONNECT
@@ -92,37 +90,35 @@ const [phantom, setPhantom] = useState(null);
 // };
 
   return (
+<>
+  <div className="App">
 
-    <div className="App">
-      <div className="container">      
-        <div className="sound-box">
-          <span className="sound-toggle" 
-            onClick={() => setIsPlaying(!isPlaying ? true : false)}>
-              {isPlaying ? '🔊' : '🔇'} 
-          </span>
-          <span className="sound-toggle-no-animation" 
-            onClick={() => setIsMetal(!isMetal ? true : false)}>
-              {isMetal ? '🎸' : '🪕'}
-          </span>
+    <div className="container">
+      {/*<div className="sound-box">*/}
+      {/*    <span className="sound-toggle"*/}
+      {/*          onClick={() => setIsPlaying(!isPlaying ? true : false)}>*/}
+      {/*        {isPlaying ? '🔊' : '🔇'}*/}
+      {/*    </span>*/}
+      {/*  <span className="sound-toggle-no-animation"*/}
+      {/*        onClick={() => setIsMetal(!isMetal ? true : false)}>*/}
+      {/*        {isMetal ? '🎸' : '🪕'}*/}
+      {/*    </span>*/}
 
-        </div>
-        <div className="error">{metaMaskMsg ? 'You need MetaMask to play!' : ''}</div>
-        <div className="header glow-text gradient-text">SUSSY CATS
-          {/*<p className="sub-text">Fight For Valhalla</p>*/}
-        </div>
+      {/*</div>*/}
+      <div className=" header home__title">Sussy Cats</div>
+      <div>
         {renderContent()}
-      </div>
-      <Sound
-        url={isMetal ? ValhallaMetal: Valhalla}
-        playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-        volume={20}
-        loop
-      />
-      <div className="footer-container">
-        <div className="footer-text"/>
-        &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>
+
       </div>
     </div>
+
+    <div className="footer-container">
+      <div className="footer-text"/>
+      &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>
+    </div>
+  </div>
+</>
+
   );
 };
 
