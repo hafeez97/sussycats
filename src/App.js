@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Sound from 'react-sound';
 import Valhalla from './assets/valhalla.mp3';
 import ValhallaMetal from './assets/valhalla_metal.mp3';
-
 import { ethers } from 'ethers';
 import './App.css';
 
@@ -20,56 +19,80 @@ const [metaMaskMsg, setMetaMaskMsg] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
 const [isPlaying, setIsPlaying] = useState(true);
 const [isMetal, setIsMetal] = useState(true);
+const [connected, setConnected] = useState(false);
+const [phantom, setPhantom] = useState(null);
 
   // Actions
   const checkIfWalletIsConnected = async () => {
     console.log("check if wallet is connected");
   };
 
-  /*
-   * Implement your connectWallet method here
-   */
+
   const connectWalletAction = async () => {
     console.log("connect wallet action");
+    try{
+      const res = await window.solana.connect()
+      setCurrentAccount(res.publicKey.toString())
+      setConnected(true)
+    }
+    catch (err){
+      console.log(err);
+    }
+  };
+
+  const disconnectWalletAction =() => {
+    window.solana.disconnect()
+    setConnected(false)
   };
 
   // Render Methods
-const renderContent = () => {
+  const renderContent = () => {
+    if (connected !== true) {
+      return (
+        <div className="connect-wallet-container">
+          <button
+            className="cta-button connect-wallet-button"
+            onClick={connectWalletAction}
+          >
+            CONNECT WALLET TO PLAY
+          </button>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div className="connect-wallet-container">
+          <button
+            className="cta-button connect-wallet-button"
+            onClick={disconnectWalletAction}
+          >
+            DISCONNECT
+          </button>
+        </div>
+      )
+    }
+  };
 
-  if (isLoading) {
-    return <LoadingIndicator />;
-  }
-  
-  /*
-   * Scenario #1
-   */
-  if (!currentAccount) {
-    return (
-      <div className="connect-wallet-container">
-        <button
-          className="cta-button connect-wallet-button"
-          onClick={connectWalletAction}
-        >
-          CONNECT WALLET TO PLAY
-        </button>
-      </div>
-    );
-    /*
-     * Scenario #2
-     */
-  }
-};
-
-  useEffect(() => {
-    // setIsLoading(true);
-    // checkIfWalletIsConnected();
-  }, []);
-
-  /*
- * Add this useEffect right under the other useEffect where you are calling checkIfWalletIsConnected
- */
+// const renderContent = () => {
+//   if (isLoading) {
+//     return <LoadingIndicator />;
+//   }
+//   if (!currentAccount) {
+//     return (
+//       <div className="connect-wallet-container">
+//         <button
+//           className="cta-button connect-wallet-button"
+//           onClick={connectWalletAction}
+//         >
+//           CONNECT WALLET TO PLAY
+//         </button>
+//       </div>
+//     );
+//   }
+// };
 
   return (
+
     <div className="App">
       <div className="container">      
         <div className="sound-box">
@@ -87,7 +110,6 @@ const renderContent = () => {
         <div className="header glow-text gradient-text">SUSSY CATS
           {/*<p className="sub-text">Fight For Valhalla</p>*/}
         </div>
-        {/* 🪓⚔️🛡️🗡️🏹 */}
         {renderContent()}
       </div>
       <Sound
@@ -97,8 +119,8 @@ const renderContent = () => {
         loop
       />
       <div className="footer-container">
-        <div className="footer-text"></div>
-        &copy; 2022 sussycats Created with 🔥 by <b>Metafi</b>
+        <div className="footer-text"/>
+        &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>
       </div>
     </div>
   );
