@@ -10,7 +10,7 @@
   background-image: url("./assets/MAINBG.gif");
   background-size: cover;
   background-position: center;
-  overflow: scroll;
+  overflow: hidden;
   text-align: center;
 }
 

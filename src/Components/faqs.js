@@ -5,41 +5,56 @@ import Faq from "react-faq-component";
 const Faqs=()=> {
   const [rows, setRowsOption] = useState(null);
   const data = {
-    title: "FAQ (How it works)",
     rows: [
       {
-        title: "Lorem ipsum dolor sit amet,",
-        content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-              ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-              In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-              Fusce sed commodo purus, at tempus turpis.`
+        title: "When will the Sussy Cats collection be launched?",
+        content:"14th feb. 2022. "
       },
       {
-        title: "Nunc maximus, magna at ultricies elementum",
-        content:
-          "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor."
+        title: "What will be the size of the collection?",
+        content: "The total supply is 1111, but 40 of them will be used for marketing and giveaways, so 1071 will be available for mint."
       },
       {
-        title: "Curabitur laoreet, mauris vel blandit fringilla",
-        content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `
+        title: "What is the price of one Sussy Cat?",
+        content:"0.11 SOL. "
       },
       {
-        title: "What is the package version",
-        content: <p>current version is 1.2.1</p>
+        title: "What wallet do you recommend?",
+        content: "We recommend to use the Phantom wallet (https://phantom.app/)"
+      },
+      {
+        title: "How can I mint my Sussy Cat?",
+        content: "You will be able to mint your Sussy Sol Cat by connecting your wallet to our website on the mint date and just hit the mint button! Website: https://sussycats.netlify.app/ (only use our offical link)"
+      },
+      {
+        title: "Will you ever dm me first?",
+        content: "No, we will never dm you first."
+      },
+      {
+        title: "How can I get on the WL?",
+        content: "The answer is: there is no whitelist."
+      },
+      {
+        title: "Why should I be here or invest into Sussy Sol Cats?",
+        content: "Our project will be community-focused and driven. Our goal is for everyone to be able to make some money with their initial investment by thriving to keep increasing the floor price. We will take community suggestions and organize holder meetings. Every holder will have a voice."
+      },
+      {
+        title: "Is Sussy Sol Cats a long-term project?",
+        content: "Absolutely! We are looking forward to launching a second and a third collection!People who will get in early and holders will have a advantage in the upcoming collections and projects. "
       }
+
+
     ]
   };
   const styles = {
     bgColor: 'none',
-    titleTextColor: "white",
+    titleTextColor: "green",
     rowTitleColor: "white",
-    titleTextSize: "25px",
+    titleTextSize: "30px",
     rowTextColor:"white",
     rowContentColor:"white",
     arrowColor: "purple",
+    border:"none"
 
   };
   // useEffect(() => {
@@ -61,9 +76,13 @@ const Faqs=()=> {
 
   return (
     <div className="Faqs">
-      <div className="box">
-        <Faq data={data} getRowOptions={setRowsOption} styles={styles} />
+      <div className="faq-style-wrapper">
+        <div className="box">
+          <h1 style={{textAlign:"center", fontSize:"50px", color:"#3cff00"}}>FAQs</h1>
+          <Faq data={data} getRowOptions={setRowsOption} styles={styles} />
+        </div>
       </div>
+
     </div>
   );
 }
