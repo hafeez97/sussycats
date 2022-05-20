@@ -79,7 +79,8 @@ const [connected, setConnected] = useState(false);
         <div>
           <a href="https://phantom.app/"
              target="_blank" className="card">
-            <img src="https://thesussycats.netlify.app/assets/img/gif/01.gif" className="card__image" alt="" />
+            {/*<img src="https://thesussycats.netlify.app/assets/img/gif/01.gif" className="card__image" alt="" />*/}
+            <img src="../src/assets/01.gif" className="card__image" alt="" />
             <div className="card__overlay">
               <div className="card__header">
                 <svg className="card__arc" xmlns="http://www.w3.org/2000/svg">
@@ -142,8 +143,9 @@ const [connected, setConnected] = useState(false);
     {/*  <div className="footer-text"/>*/}
     {/*  &copy; 2022 SUSSYCATS Created with 🔥 by <b>Metafi</b>*/}
     {/*</div>*/}
-    <Faqs/>
+
   </div>
+  <Faqs/>
 
 </>
 
