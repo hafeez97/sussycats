@@ -80,7 +80,6 @@ const [connected, setConnected] = useState(false);
         <div>
           <a href="https://phantom.app/"
              target="_blank" className="card">
-            {/*<img src="https://thesussycats.netlify.app/assets/img/gif/01.gif" className="card__image" alt="" />*/}
             <img src="../src/assets/01.gif" className="card__image" alt="" />
             <div className="card__overlay">
               <div className="card__header">
