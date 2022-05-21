@@ -70,7 +70,7 @@ const [connected, setConnected] = useState(false);
         );
       }
       return (
-        <button onClick={disconnectWalletAction}>disconnect</button>
+        <p className="card__description" style={{fontSize:"60px"}}>Game is ON</p>
       )
 
 
